@@ -21,7 +21,7 @@
     <!--Title-->
 
 
-<title>Archives | Hexo</title>
+<title>TP-隐藏index.php | Hexo</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -33,6 +33,8 @@
 
 
 
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
 
 
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
@@ -113,45 +115,93 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">年 月</h1>
-        
-          <li class="post-items" _href="/2017/10/28/TP-隐藏index-php/">
-            <h3 class="post-item-title">
-            	<a href="/2017/10/28/TP-隐藏index-php/"> TP-隐藏index.php </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2017/10/28/git-三部曲/">
-            <h3 class="post-item-title">
-            	<a href="/2017/10/28/git-三部曲/"> git 三部曲 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2017/10/28/Hexo/">
-            <h3 class="post-item-title">
-            	<a href="/2017/10/28/Hexo/"> Hexo </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2017/10/27/666/">
-            <h3 class="post-item-title">
-            	<a href="/2017/10/27/666/"> 666 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2017/10/27/hello-world/">
-            <h3 class="post-item-title">
-            	<a href="/2017/10/27/hello-world/"> Hello World </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="TP-隐藏index.php">
+            
+            TP-隐藏index.php
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>无</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            null
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/10/28</span>
+    </span>
 </div>
+
+            
+            
+    </div>
+    
+    <div class="post-body">
+        <p>##一、修改apache中httpd.conf文件</p>
+<p>　　-1. 找到#LoadModule rewrite_module modules/mod_rewrite.so，将前面”#”去掉；</p>
+<p>　　-2.找到所有AllowOverride None，将其改为AllowOverride All；</p>
+<p>##二、在自己项目中修改配置文件(Con/config.php)，修改URL模式为2</p>
+<p>　　‘URL_MODEL’             =&gt; 2,       // URL访问模式,可选参数0、1、2、3,代表以下四种模式：</p>
+<p>##三、在入口文件index.php处创建.htaccess文件，添加一下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-&lt;IfModule mod_rewrite.c&gt;</div><div class="line"></div><div class="line">RewriteEngine on</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line"></div><div class="line">RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]</div><div class="line"></div><div class="line">&lt;/IfModule&gt;</div><div class="line"></div><div class="line"> -&lt; IfModule mod_rewrite.c&gt;</div><div class="line"></div><div class="line">Options +FollowSymlinks</div><div class="line"></div><div class="line">RewriteEngine On</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line"></div><div class="line">RewriteRule ^(.*)$ index.php?s=$1</div><div class="line"></div><div class="line">&lt;/ IfModule&gt;</div><div class="line"></div><div class="line">-&lt;IfModule mod_rewrite.c&gt;</div><div class="line"></div><div class="line">Options +FollowSymlinks</div><div class="line"></div><div class="line">RewriteEngine On</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line"></div><div class="line">RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1]</div><div class="line"></div><div class="line">&lt;/IfModule&gt;</div></pre></td></tr></table></figure>
+<p>##四、重启apache即可</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明: 商业转载请联系作者获得授权,非商业转载请注明出处 © Snippet
+            
+        </div>
+        <div>
+            
+                License: <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">
+知识共享署名-非商业性使用-禁止演绎 3.0 未本地化版本许可协议（CC BY-NC-ND 3.0）
+</a>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2017/10/28/git-三部曲/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1966422"></script>
+
+
+
+
+
+
+
+
+    </div>
 
 
 
@@ -266,6 +316,11 @@
         </div>
     </div>
 </div>
+
+  <script src="/assets/highlight.pack.js?rev=@@hash"></script>
+  <script>
+    hljs.initHighlightingOnLoad(); //初始化代码高亮 
+  </script>
 
 <script src="/js/app.js?rev=@@hash"></script>
 
