@@ -21,7 +21,7 @@
     <!--Title-->
 
 
-<title>Archives: 2017 | Hexo</title>
+<title>git 三部曲 | Hexo</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -33,6 +33,8 @@
 
 
 
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
 
 
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
@@ -113,39 +115,94 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">2017年 月</h1>
-        
-          <li class="post-items" _href="/2017/10/28/git-三部曲/">
-            <h3 class="post-item-title">
-            	<a href="/2017/10/28/git-三部曲/"> git 三部曲 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2017/10/28/Hexo/">
-            <h3 class="post-item-title">
-            	<a href="/2017/10/28/Hexo/"> Hexo </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2017/10/27/666/">
-            <h3 class="post-item-title">
-            	<a href="/2017/10/27/666/"> 666 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2017/10/27/hello-world/">
-            <h3 class="post-item-title">
-            	<a href="/2017/10/27/hello-world/"> Hello World </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="git 三部曲">
+            
+            git 三部曲
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>无</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            null
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/10/28</span>
+    </span>
 </div>
+
+            
+            
+    </div>
+    
+    <div class="post-body">
+        <p>#git设置用户名密码</p>
+<p>##设置git用户名／邮箱</p>
+<p><strong>git config –global user.name ‘ybring’</strong></p>
+<p><strong>git config –global user.email ‘664621217@qq.com’</strong></p>
+<p><strong>git init</strong></p>
+<p>-<strong>git add -A</strong><br>-<strong>git commit -am ‘添加新功能了’</strong><br>-<strong>git push git@github.com:ybring/take-out master</strong><br>-<strong>git push git@github.com:ybring/仓库名 master</strong></p>
+<p>生成公钥<br><strong>ssh-keygen</strong></p>
+<p>// 获取最新<br><strong>git clone git@github.com:ybring/take-out master</strong></p>
+<p>// 更新代码<br><strong>git pull git@github.com:ybring/take-out master</strong></p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明: 商业转载请联系作者获得授权,非商业转载请注明出处 © Snippet
+            
+        </div>
+        <div>
+            
+                License: <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">
+知识共享署名-非商业性使用-禁止演绎 3.0 未本地化版本许可协议（CC BY-NC-ND 3.0）
+</a>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2017/10/28/Hexo/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1966422"></script>
+
+
+
+
+
+
+
+
+    </div>
 
 
 
@@ -260,6 +317,11 @@
         </div>
     </div>
 </div>
+
+  <script src="/assets/highlight.pack.js?rev=@@hash"></script>
+  <script>
+    hljs.initHighlightingOnLoad(); //初始化代码高亮 
+  </script>
 
 <script src="/js/app.js?rev=@@hash"></script>
 
