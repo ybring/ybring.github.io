@@ -91,7 +91,7 @@
                 <div class="collapse navbar-collapse" id="main-menu">
                     <ul class="menu">
                         
-                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>Home</a>
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
                             </li>
                         
                             <li role="presentation"><a href="/categories/前端/"><i class="fa fa-fw "></i>前端</a>
@@ -154,15 +154,16 @@
     </div>
     
     <div class="post-body">
-        <p>##一、修改apache中httpd.conf文件</p>
-<p>　　-1. 找到#LoadModule rewrite_module modules/mod_rewrite.so，将前面”#”去掉；</p>
-<p>　　-2.找到所有AllowOverride None，将其改为AllowOverride All；</p>
-<p>##二、在自己项目中修改配置文件(Con/config.php)，修改URL模式为2</p>
-<p>　　‘URL_MODEL’             =&gt; 2,       // URL访问模式,可选参数0、1、2、3,代表以下四种模式：</p>
-<p>##三、在入口文件index.php处创建.htaccess文件，添加一下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-&lt;IfModule mod_rewrite.c&gt;</div><div class="line"></div><div class="line">RewriteEngine on</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line"></div><div class="line">RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]</div><div class="line"></div><div class="line">&lt;/IfModule&gt;</div><div class="line"></div><div class="line"> -&lt; IfModule mod_rewrite.c&gt;</div><div class="line"></div><div class="line">Options +FollowSymlinks</div><div class="line"></div><div class="line">RewriteEngine On</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line"></div><div class="line">RewriteRule ^(.*)$ index.php?s=$1</div><div class="line"></div><div class="line">&lt;/ IfModule&gt;</div><div class="line"></div><div class="line">-&lt;IfModule mod_rewrite.c&gt;</div><div class="line"></div><div class="line">Options +FollowSymlinks</div><div class="line"></div><div class="line">RewriteEngine On</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line"></div><div class="line">RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1]</div><div class="line"></div><div class="line">&lt;/IfModule&gt;</div></pre></td></tr></table></figure>
-<p>##四、重启apache即可</p>
-
+        <h2 id="一、修改apache中httpd-conf文件"><a href="#一、修改apache中httpd-conf文件" class="headerlink" title="一、修改apache中httpd.conf文件"></a>一、修改apache中httpd.conf文件</h2><ul>
+<li><ol>
+<li>找到#LoadModule rewrite_module modules/mod_rewrite.so，将前面”#”去掉；</li>
+</ol>
+</li>
+<li>2.找到所有AllowOverride None，将其改为AllowOverride All；</li>
+</ul>
+<h2 id="二、在自己项目中修改配置文件-Con-config-php-，修改URL模式为2"><a href="#二、在自己项目中修改配置文件-Con-config-php-，修改URL模式为2" class="headerlink" title="二、在自己项目中修改配置文件(Con/config.php)，修改URL模式为2"></a>二、在自己项目中修改配置文件(Con/config.php)，修改URL模式为2</h2><p>　　‘URL_MODEL’             =&gt; 2,       // URL访问模式,可选参数0、1、2、3,代表以下四种模式：</p>
+<h2 id="三、在入口文件index-php处创建-htaccess文件，添加一下内容"><a href="#三、在入口文件index-php处创建-htaccess文件，添加一下内容" class="headerlink" title="三、在入口文件index.php处创建.htaccess文件，添加一下内容"></a>三、在入口文件index.php处创建.htaccess文件，添加一下内容</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- &lt;IfModule mod_rewrite.c&gt;</div><div class="line"></div><div class="line">RewriteEngine on</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line"></div><div class="line">RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]</div><div class="line"></div><div class="line">&lt;/IfModule&gt;</div><div class="line"></div><div class="line">- &lt; IfModule mod_rewrite.c&gt;</div><div class="line"></div><div class="line">Options +FollowSymlinks</div><div class="line"></div><div class="line">RewriteEngine On</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line"></div><div class="line">RewriteRule ^(.*)$ index.php?s=$1</div><div class="line"></div><div class="line">&lt;/ IfModule&gt;</div><div class="line"></div><div class="line">- &lt;IfModule mod_rewrite.c&gt;</div><div class="line"></div><div class="line">Options +FollowSymlinks</div><div class="line"></div><div class="line">RewriteEngine On</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line"></div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line"></div><div class="line">RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1]</div><div class="line"></div><div class="line">&lt;/IfModule&gt;</div></pre></td></tr></table></figure>
+<h2 id="四、重启apache即可"><a href="#四、重启apache即可" class="headerlink" title="四、重启apache即可"></a>四、重启apache即可</h2>
     </div>
 
     <div class="post-footer">   
@@ -173,7 +174,7 @@
         </div>
         <div>
             
-                License: <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">
+                版权声明: <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">
 知识共享署名-非商业性使用-禁止演绎 3.0 未本地化版本许可协议（CC BY-NC-ND 3.0）
 </a>
             
@@ -262,7 +263,7 @@
         
         
     <div class="widget">
-      <h3 class="title">Archives</h3>
+      <h3 class="title">归档</h3>
         <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/"><i class="fa" aria-hidden="true">October 2017</i></a><span class="archive-list-count">5</span></li></ul>
     </div>
 
@@ -273,7 +274,7 @@
         
         
     <div class="widget">
-        <h3 class="title">Friends</h3>
+        <h3 class="title">友链</h3>
         <div class="content friends-link">
         
             <a href="https://ybring.github.io/" class="fa" target="_blank">个人博客</a>
