@@ -21,7 +21,7 @@
     <!--Title-->
 
 
-<title>Hexo | Hexo</title>
+<title>图片处理 | Hexo</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -119,9 +119,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Hexo">
+        <h1 id="图片处理">
             
-            Hexo
+            图片处理
             
         </h1>
         <div class="post-meta">
@@ -145,7 +145,7 @@
     
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
-        <span class="date-meta">2017/10/28</span>
+        <span class="date-meta">2017/10/31</span>
     </span>
 </div>
 
@@ -154,15 +154,14 @@
     </div>
     
     <div class="post-body">
-        <h1 id="HEXO"><a href="#HEXO" class="headerlink" title="HEXO"></a>HEXO</h1><p><strong>hexo g</strong> ：上传到内存。</p>
-<p><strong>hexo d</strong> ：上传到github</p>
-<p>hexo new”postName” #新建文章</p>
-<p>hexo new page”pageName” #新建页面</p>
-<p>hexo generate #生成静态页面至public目录</p>
-<p>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</p>
-<p>hexo deploy #将.deploy目录部署到GitHub</p>
-<p>hexo help # 查看帮助</p>
-<p>hexo version #查看Hexo的版本</p>
+        <p>##// 截取<br>$img = $_POST[‘img’]; //获取过来的base64图片 ，要删除 data:image/jpeg;base64,</p>
+<p>$img=strstr($img, ‘,’);//删除data:image/jpeg;base64  删除逗号之前的</p>
+<p>$img = ltrim($img, “,”);//删除字符串第一个 逗号</p>
+<p>###// 解码        生成图片</p>
+<p>$img = base64_decode($img);</p>
+<p>###// 写入文件</p>
+<p>file_put_contents(‘1.png’, $img);</p>
+<p>##文件地址<br><a href="https://github.com/ybring/tupian" target="_blank" rel="external">@图片处理</a></p>
 
     </div>
 
@@ -184,10 +183,8 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2017/10/28/git-三部曲/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
     
-    
-        <a href="/2017/10/27/666/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+        <a href="/2017/10/29/ip-time/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
     
 </div>
 
